@@ -1,0 +1,187 @@
+.nav{
+    width: 100%;
+    background: #fff;
+    z-index: 1000;
+    &.fixed{
+        position: fixed;
+        top: 0;
+    }
+
+    .nav__container{
+        display: flex;
+        flex-direction: column;
+        min-height: 64px;
+
+        @include desktop {
+            flex-direction: row;
+            justify-content: space-between;
+            border-bottom: 1px solid #dfe0e0;
+            padding: 0 2em;
+        }
+    }
+
+    &__header{
+        background: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 64px;
+        border-bottom: 1px solid #dfe0e0;
+        z-index: 20;
+        &__logo,&__toggle{
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        &__logo{
+            a{
+                display: block;
+                img{
+                    height: 50px;
+                }
+            }
+            align-self: center;
+        }
+        &__toggle{
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            &__icon{
+                position: relative;
+                z-index: 300;
+                width: 30px;
+                height: 20px;
+                box-shadow: inset 0 4px #53575a;
+                cursor: pointer;
+                -webkit-box-flex: 0;
+                -ms-flex: none;
+                flex: none;
+                margin-left: 1em;
+                &:before,&:after{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 4px;
+                    background-color: #53575a;
+                    bottom: 0;
+                    transition-duration: .5s;
+                }
+                &:after{
+                    bottom: 8px;
+                }
+            }
+
+            @include desktop {
+                display: none;
+            }
+        }
+
+        @include desktop{
+            border: none;
+        }
+    }
+
+    &__body{
+        transition-duration: .5s;
+        z-index: 10;
+        position: absolute;
+        width: 100%;
+        background-color: #2575B7;
+        top: -100vh;;
+        ul{
+            list-style:none;
+            li{
+                margin-bottom: 0;
+                position: relative; 
+                a{
+                    text-decoration: none;
+                    color: #ffffff;
+                    line-height: 1.4em;
+                    display: block;
+                    border-bottom: 1px solid hsla(180,2%,88%,.4);
+                    font-size: 1em;
+                    padding: .8em 1em;
+                    
+                    @include desktop {
+                        font-size: .8em;
+
+                        &::after{
+                            content: "";
+                            position: absolute;
+                            width: 0;
+                            height: 3px;
+                            background-color: #2575B7;
+                            left: 50%;
+                            bottom: 0;
+                            transition-duration: .5s;
+    
+                        }
+    
+                        &:hover::after{
+                            width: 100%;
+                            left: 0;
+                        }
+                    }
+                }
+
+                &.active{
+                    @include desktop{
+                        a{
+                            &::after{
+                                width: 100%;
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include desktop{
+            top: initial;
+            background-color: initial;
+            width: initial;
+            position: inherit;
+            display: flex;
+            align-items: center;
+            ul{
+                li{
+                    display: inline-block;
+                    a{
+                        color: #001c47;
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+    }
+
+    &.active{
+        .nav__header{
+            &__toggle{
+                &__icon{
+                    height: 0;
+                    &:before,&:after{
+                        bottom: 50%;
+                    }
+                    &:before{
+                        transform: rotate(40deg);
+                    }
+                    
+                    &:after{
+                        transform: rotate(-40deg);
+                    }
+                }
+            }
+        }
+        .nav__body{
+            top: 64px;
+        }
+    }
+}
+
+.nav + main>section{
+    padding-top: 4em;
+    padding-bottom: 4em;
+}

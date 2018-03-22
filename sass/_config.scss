@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One);
+@import "variables";
+@import "mixin";
+
+html{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+    body{
+        font-size: 16px;
+    }
+
+    p{
+        font-family: 'Montserrat', sans-serif;
+    }
+}
+
+*,*:after,*:before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+img{
+    display: block;
+    max-width: 100%;
+}
+
+.container{
+    max-width: 1114px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: flex;
+}
+
+.title{
+    padding-bottom: 1.5em;
+    h1{
+        font-family: 'Fjalla One', sans-serif;
+        font-size: 2em;
+        text-align: center;
+        @include desktop{
+            font-size: 3.5em;
+        }
+    }
+
+    @include desktop{
+        padding-bottom: 5em;
+    }
+}
+
+.main{
+    >section{
+        padding: 3em .5em;
+        @include tablet{
+            padding: 6.5em .5em;
+        }
+
+        @include desktop{
+            padding: 8em 0;
+        }
+        &:nth-child(odd){
+            background: #F5F5F5;
+            box-shadow: inset 1px 0px 8px 0px rgba(0,0,0,0.5);
+        }
+
+        &:nth-child(even){
+            
+            background: #FFFFFF;
+        }
+    }
+
+    &.nav__fixed{
+        margin-top: 65px;
+    }
+}
