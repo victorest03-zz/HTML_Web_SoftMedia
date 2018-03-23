@@ -312,7 +312,7 @@ header .slider__item__content {
 @media (min-width: 992px) {
   .nav__body {
     top: initial;
-    background-color: initial;
+    background-color: white;
     width: initial;
     position: inherit;
     display: flex;
