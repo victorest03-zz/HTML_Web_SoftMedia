@@ -74,6 +74,10 @@ img{
     }
 
     &.nav__fixed{
-        margin-top: 65px;
+        margin-top: 0;
+
+        @include desktop {
+            margin-top: 65px;
+        }
     }
 }
