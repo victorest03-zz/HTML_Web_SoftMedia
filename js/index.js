@@ -1,6 +1,5 @@
 $(function(){
     $(".nav__header__toggle").on("click",function(){
-        console.log("gg")
         $(this).parents(".nav").toggleClass("active")
     })
 
@@ -11,15 +10,15 @@ $(function(){
             $('html, body').stop().animate({
                 scrollTop: target.offset().top
             }, 1000);
-            // $('nav li.active').removeClass('active');
-            // $(this).parent().addClass("active")
+            $(this).parents(".nav").toggleClass("active");
         }
     });
 
     $(window).bind('scroll', function () {
         let windowScrolTop = $(window).scrollTop();
-        if (windowScrolTop > $('#slider').height()) {
+        if (windowScrolTop > $('#slider').height() ) {
             $('#nav').addClass('fixed');
+            $('#main').addClass('nav__fixed');
             $('#main').addClass('nav__fixed');
         } else {
             $('#nav').removeClass('fixed');

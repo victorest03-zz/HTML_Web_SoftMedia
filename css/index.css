@@ -58,7 +58,7 @@ img {
 }
 
 .main > section {
-  padding: 3em .5em;
+  padding: 5em .5em;
 }
 
 @media (min-width: 768px) {
@@ -96,6 +96,7 @@ header .slider {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 64px;
 }
 
 header .slider::before {
@@ -134,15 +135,28 @@ header .slider__item__content {
   }
 }
 
+@media (min-width: 992px) {
+  header .slider {
+    margin-top: 0;
+  }
+}
+
 .nav {
   width: 100%;
   background: #fff;
   z-index: 1000;
+  position: fixed;
 }
 
 .nav.fixed {
   position: fixed;
   top: 0;
+}
+
+@media (min-width: 992px) {
+  .nav {
+    position: initial;
+  }
 }
 
 .nav .nav__container {
@@ -327,11 +341,6 @@ header .slider__item__content {
   top: 64px;
 }
 
-.nav + main > section {
-  padding-top: 4em;
-  padding-bottom: 4em;
-}
-
 .card {
   display: flex;
   flex-wrap: wrap;
@@ -505,6 +514,20 @@ header .slider__item__content {
 
 .form textarea {
   padding-top: 12px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  .header .slider {
+    order: 1;
+  }
+  .header .nav {
+    order: 2;
+  }
 }
 
 .trabajos .container {

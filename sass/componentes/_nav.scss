@@ -2,9 +2,14 @@
     width: 100%;
     background: #fff;
     z-index: 1000;
+    position: fixed;
     &.fixed{
         position: fixed;
         top: 0;
+    }
+
+    @include desktop {
+        position: initial;
     }
 
     .nav__container{
@@ -179,9 +184,6 @@
             top: 64px;
         }
     }
-}
 
-.nav + main>section{
-    padding-top: 4em;
-    padding-bottom: 4em;
+
 }
